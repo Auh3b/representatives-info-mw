@@ -1,20 +1,20 @@
 <template>
-  <div class="chart h-full flex flex-col justify-center items-center">
-      <select @change="this.$data.setData" v-model="this.$data.selected" name="district" id="district" class="p-4 my-4 border border-gray-300">
+  <div class="transform chart h-full flex flex-col justify-center items-center">
+      <select @change="updateChart" v-model="xValue" name="district" id="district" class="p-4 my-4 border border-gray-300">
         <option value="">Select District</option>
-        <option v-for="opt in this.$data.options" :key="opt" :value="opt">{{opt}}</option>
+        <option v-for="(opt, index) in this.options" :key="index" :value="opt">{{opt}}</option>
       </select>
-      <div class="chart mt-2 flex flex-col items-center">
+      <div class="chart mt-0 sm:mt-2 flex flex-col items-center">
         <h3 class="bg-gray-800 text-xl text-white text-center p-2">
           Number of MPs Per Party in district
         </h3>
-        <svg id="tree" :width="this.$data.width" :height="this.$data.height">
-          <g transform="translate(50,50)"> 
+        <svg id="tree" :width="width" :height="height">
+          <g transform="translate(70,50)"> 
             <g class="y-axis">
               <text 
               class="y-axis-label" 
               transform="rotate(-90)" 
-              :x="-(this.$data.height-50 )/2"
+              :x="-(height-50 )/2"
               y=-30
               text-anchor="middle"
               >
@@ -31,55 +31,46 @@
 <script>
 import * as d3 from "d3"
 import Chart from "../assets/javascript/Chart"
+import {mapMutations } from "vuex"
 
 export default {
     name: "StatisticsUI",
-    props:["reps"],
     data(){
       return{
-        options:[],
-        data:[],
-        selected:"Lilongwe",
+        xValue:"",
         yLabel:"Number of Representatives",
-        width: 500,
-        height: 500,
+        height: 400,
       }
     },
     mounted(){
-      this.setOptions(),
-      this.genChart(this.data)
+      this.genChart(this.mps, this.selected)
     },
     updated(){
-      this.genChart(this.data)
+      this.genChart(this.mps, this.selected)
     },
     computed:{
-      rects(){
-        return true
+      mps(){
+        return this.$store.state.chart.chartData
+      },
+      options(){
+        return this.$store.state.chart.options
+      },
+      selected(){
+        return this.$store.state.chart.selectedDistrict
+      },
+      width(){
+        return process.client ? window.innerWidth : 300
       }
     },
     methods:{
-        setOptions(){
-            let parties = d3.rollup(this.reps,v=>v.length,d=>d.district,  d=> d.party)
+      ...mapMutations(["chart/setSelectedDistrict","chart/setChartData"]),
 
-            Array.from(parties, ([key, values])=>{
-             this.options.push(key)
-             if(key === "Lilongwe"){
-                    this.data = Array.from(values)
-                  }
-            })
+      updateChart(){
+        this['chart/setSelectedDistrict'](this.xValue)
+        this['chart/setChartData']()
+      },
 
-            this.options.sort((a,b)=> a < b ? -1 : 1)
-        },
-        setData(){
-          let parties = d3.rollup(this.reps,v=>v.length,d=>d.district,  d=> d.party)
-          const district = this.selected
-          Array.from(parties, ([key, values])=>{
-                  if(key === district){
-                    this.data = Array.from(values)
-                  }
-              })
-        },
-        genChart(data){
+        genChart: (data,selected)=> {
           const svg = d3.select("svg")
           const margin ={left: 50, right:50, top:50, bottom:50}
           
@@ -96,12 +87,8 @@ export default {
           }
 
           const chart = new Chart(data)
-          chart.bar(svg, margin,0,1,color,this.selected)
+          chart.bar(svg, margin,0,1,color, selected)
         },
-        
-        logger(e){
-          console.log(this.selected)
-        }
     }
 }
 </script>

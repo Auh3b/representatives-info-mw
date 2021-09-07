@@ -11,13 +11,5 @@
 
 export default {
     name: "Search",
-    props:["mpsList"],
 }
 </script>
-
-<style>
-.search{
-  height: 70vh;
-  overflow-y: scroll;
-}
-</style>

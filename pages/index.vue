@@ -17,23 +17,17 @@
 <script>
 import {format} from "date-fns"
 export default {
-    name:"Home",
-    components:{
-        
-    },
     data(){
         return{
             date: new Date()
         }
     },
-    created(){
-        
-    },
     methods:{
         formateDate(dateObj){
             return format(dateObj, "dd LLLL, yyyy")
         }
-    }
+    },
+    layout: "home"
 }
 </script>
 

@@ -1,5 +1,3 @@
-import Vuex from "vuex";
-
 // Data import
 import mpsJson from "../static/mps.json";
 import axios from "axios";

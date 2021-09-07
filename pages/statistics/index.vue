@@ -1,16 +1,29 @@
 <template>
     <div>
-            <StatisticsUI :reps="reps"/>
+        <client-only>
+            <StatisticsUI />
+        </client-only>
     </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
     name: "Statistics",
+    created(){
+        this.setOptionsList()
+        this.setChart()
+    },
     computed:{
-        ...mapGetters({reps: "getAllReps"})
+        options(){
+            return this.$store.state.chart.options
+        }
+    },
+
+    methods:{
+        ...mapMutations({setOptionsList: "chart/setOptions"}),
+        ...mapMutations({setChart: "chart/setChartData"})
     }
 }
 </script>
