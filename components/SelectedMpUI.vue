@@ -11,7 +11,7 @@
             </div>
     </div>
     <div class="h-1/6 w-11/12 flex items-center justify-between gap-5">
-        <router-link class="rounded-sm w-6/12 bg-blue-900 text-lg text-white py-4 px-2 text-center" :to="'/articles/'+rep.name">Latest News</router-link>
+        <router-link class="rounded-sm w-6/12 bg-blue-900 text-lg text-white py-4 px-2 text-center" to="/articles">Latest News</router-link>
         <router-link class="rounded-sm w-6/12 bg-gray-800 text-lg text-white py-4 px-2 text-center" to="/search">Back</router-link>
     </div>
 </div>

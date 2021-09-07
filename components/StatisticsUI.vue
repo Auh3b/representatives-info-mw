@@ -1,5 +1,5 @@
 <template>
-  <div class="transform chart h-full flex flex-col justify-center items-center">
+  <div class="chart h-full flex flex-col justify-start items-center">
       <select @change="updateChart" v-model="xValue" name="district" id="district" class="p-4 my-4 border border-gray-300">
         <option value="">Select District</option>
         <option v-for="(opt, index) in this.options" :key="index" :value="opt">{{opt}}</option>
@@ -9,7 +9,7 @@
           Number of MPs Per Party in district
         </h3>
         <svg id="tree" :width="width" :height="height">
-          <g transform="translate(70,50)"> 
+          <g transform="translate(70,30)"> 
             <g class="y-axis">
               <text 
               class="y-axis-label" 

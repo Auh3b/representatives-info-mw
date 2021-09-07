@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full lg:w-4/6 my-2 px-4 pt-6 flex flex-col justify-start" @keypress="updateMpsList">
+  <div class="w-full lg:w-4/6 my-2 px-4 pt-2 lg:pt-6 flex flex-col justify-start" @keypress="updateMpsList">
       <div class="flex flex-col justify-start mb-4">
           <label for="name" class="text-gray-400 text-lg mb-1">Name:</label>
           <input v-model="searchParam.name" type="text" class="border-b border-gray-800 rounded-none p-1 text-lg focus:outline-none" placeholder="Kondwani Nankhumwa">

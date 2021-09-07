@@ -1,6 +1,6 @@
 <template>
 <div class="relative h-full transform -translate-y-5">
-    <h1 class=" absolute -top-5 pl-4 bg-gray-500 md:text-center text-white text-md sm:text-lg w-full">{{rep.name}} - Latest News</h1>
+    <h1 v-if="!loading" class=" absolute -top-5 pl-4 bg-gray-500 md:text-center text-white text-md sm:text-lg w-full">{{rep.name}} - Latest News</h1>
     <div class="h-full overflow-y-scroll mb-4">
         <div v-if="loading">
             <Loading />

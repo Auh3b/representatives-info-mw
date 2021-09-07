@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="h-full">
         <client-only>
             <StatisticsUI />
         </client-only>
@@ -15,12 +15,6 @@ export default {
         this.setOptionsList()
         this.setChart()
     },
-    computed:{
-        options(){
-            return this.$store.state.chart.options
-        }
-    },
-
     methods:{
         ...mapMutations({setOptionsList: "chart/setOptions"}),
         ...mapMutations({setChart: "chart/setChartData"})

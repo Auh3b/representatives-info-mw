@@ -19,14 +19,10 @@ export default {
     methods:{
         ...mapMutations(["setSelectedRep", "setFilteredReps","setLoading"]),
         setRep(){
-            console.log(this.data)
             this.setSelectedRep(this.data)
             this.setFilteredReps([])
             this.setLoading(true)
         },
-        logger(){
-            console.log("clicked")
-        }
     },
 
 }

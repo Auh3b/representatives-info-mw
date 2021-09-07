@@ -23,9 +23,12 @@ export const mutations = {
   },
 
   setOptions: state => {
+    let data = [];
     Array.from(state.mainData, ([key, values]) => {
-      state.options.push(key);
+      data.push(key);
     });
+
+    state.options = Array.from(new Set(data));
   },
 
   setSelectedDistrict: (state, payload) => {
