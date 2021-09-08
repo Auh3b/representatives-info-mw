@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/statistics", (function(a){return {data:[{}],fetch:{},mutations:[["chart\u002FsetOptions",a],["chart\u002FsetChartData",a]]}}(void 0)));
