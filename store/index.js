@@ -15,7 +15,6 @@ export const mutations = {
     state.filteredReps = payload;
   },
   setSelectedRep: (state, payload) => {
-    console.log(payload);
     state.selectedRep = payload;
   },
   setRepArticles: (state, payload) => {

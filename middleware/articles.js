@@ -24,7 +24,7 @@ export default function({ store, env }) {
         });
         store.commit("setRepArticles", articles);
       } else {
-        state.commit("setRepArticles", []);
+        store.commit("setRepArticles", []);
       }
     })
     .catch(err => console.log(err));
