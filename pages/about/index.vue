@@ -12,9 +12,8 @@
 <script>
 
 
-export default {
-    name:"About",
-    
+export default { 
+
 }
 </script>
 

@@ -50,5 +50,11 @@ export default {
   axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {},
+
+  // ENVIROMENTAL VARIABLES
+  env: {
+    gapi: process.env.GAPI_KEY,
+    cxid: process.env.CSE_ID
+  }
 };

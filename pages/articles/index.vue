@@ -7,20 +7,8 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-
 export default {
-    name: "Articles",
-    created(){
-        this.setRepArticles(this.rep)
-    },
-    methods:{
-        ...mapActions(["setRepArticles"]),
-    },
-    computed:{
-        ...mapGetters({rep: "getSelectedRep"})
-
-    }
+    middleware: "articles"
 }
 </script>
 
