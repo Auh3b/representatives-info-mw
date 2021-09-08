@@ -65,5 +65,13 @@ export default {
   env: {
     gapi: process.env.GAPI_KEY,
     cxid: process.env.CSE_ID
+  },
+
+  publicRuntimeConfig: {
+    cxid: process.env.CSE_ID
+  },
+
+  privateRuntimeConfig: {
+    gapi: process.env.GAPI_KEY
   }
 };
