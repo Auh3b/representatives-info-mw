@@ -1,12 +1,6 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: "static",
-
-  // Configuration for github deployment
-
-  router: {
-    base: "/representatives-info-mw/"
-  },
+  target: "server",
 
   // enable devtools in production
 

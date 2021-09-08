@@ -3,10 +3,10 @@ import axios from "axios";
 export default function({ store, env }) {
   const API_KEY = env.gapi;
   const cx = env.cxid;
-  const name = store.state.selectedRep.name;
+  const rep = store.state.selectedRep;
   return axios
     .get(
-      `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${cx}&q="${name}"&sort=date`
+      `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${cx}&q="${rep.name}"&sort=date`
     )
     .then(({ data }) => {
       store.commit("setLoading", false);
