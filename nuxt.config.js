@@ -2,15 +2,6 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "server",
 
-  // enable devtools in production
-
-  vue: {
-    config: {
-      productionTip: false,
-      devtools: true
-    }
-  },
-
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "KYR",
@@ -27,10 +18,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["@fortawesome/fontawesome-svg-core/styles.css"],
+  css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["./plugins/fontawesome.js"],
+  plugins: [],
 
   purgeCSS: {
     whitelistPatterns: [/svg.*/, /fa.*/]
